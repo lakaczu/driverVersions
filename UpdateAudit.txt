@@ -1,0 +1,8 @@
+# Open PowerShell as an Administrator and run the following script
+# Define the output file path
+$outputFile = "C:\InstalledUpdates.csv"
+# Get the list of installed updates
+$updates = Get-HotFix | Select-Object Description, HotFixID, InstalledOn
+# Export the update information to a CSV file
+$updates | Export-Csv -Path $outputFile -NoTypeInformation
+Write-Output "Installed updates have been exported to $outputFile"
